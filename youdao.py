@@ -66,10 +66,11 @@ def print_formatted(content):
         print("\n网络释义")
         for item in web:
             print(item.get('key')+" ",end="")
-            for val in item.get('value'):
-                print(val+",",end="")
-            print()
-        print()
+            for i,val in enumerate(item.get('value')):
+                if(i != len(item.get('value'))-1):
+                    print(val+",",end="")
+                else:
+                    print(val)
 
 
 def connect():
