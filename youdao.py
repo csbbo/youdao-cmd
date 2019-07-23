@@ -42,38 +42,38 @@ def do_request(data):
 
 
 def print_formatted(content):
-    print("\033[1;37m"+content.get('query').lstrip()+"\033[0m")
+    print("\033[1;33m"+content.get('query').lstrip()+"\033[0m")
     basic = content.get('basic')
     web = content.get('web')
     if(basic):
         if(basic.get('us-phonetic')):
-            print("美 ["+basic.get('us-phonetic')+"]",end="")
+            print("\033[1;33m"+"美["+basic.get('us-phonetic')+"]"+"\033[0m",end="")
             if(basic.get('uk-phonetic')):
-                print("\t英 ["+basic.get('uk-phonetic')+"]",end="")
-            print("\n")
+                print("\033[1;33m"+"    英["+basic.get('uk-phonetic')+"]"+"\033[0m",end="")
+            print()
         elif(basic.get('uk-phonetic')):
-            print("英 ["+basic.get('uk-phonetic')+"]\n")
+            print("\033[1;33m"+"英["+basic.get('uk-phonetic')+"]"+"\033[0m")
         for e in basic.get('explains'):
-            print(e)
+            print("\033[1;36m"+e+"\033[0m")
         if(basic.get('wfs')):
-            print("[",end="")
+            print("\033[1;35m"+"[",end="")
             for wf in basic.get('wfs'):
                 w = wf.get('wf')
                 print(w.get('name')+" "+w.get('value')+" ",end="")
-            print("]")
+            print("]"+"\033[0m")
     else:
         for translate in content.get('translation'):
-            print("\n"+translate)
+            print("\033[1;36m"+translate+"\033[0m")
 
     if(web):
-        print("\n网络释义")
+        print("\033[1;34m"+"网络释义"+"\033[0m")
         for item in web:
-            print(item.get('key')+" ",end="")
+            print("\033[1;33m"+item.get('key')+" "+"\033[0m",end="")
             for i,val in enumerate(item.get('value')):
                 if(i != len(item.get('value'))-1):
-                    print(val+",",end="")
+                    print("\033[1;36m"+val+","+"\033[0m",end="")
                 else:
-                    print(val)
+                    print("\033[1;36m"+val+"\033[0m")
 
 
 def connect():
