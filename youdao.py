@@ -48,8 +48,11 @@ def print_formatted(content):
     if(basic):
         if(basic.get('us-phonetic')):
             print("美 ["+basic.get('us-phonetic')+"]",end="")
-        if(basic.get('uk-phonetic')):
-            print("\t英 ["+basic.get('uk-phonetic')+"]\n")
+            if(basic.get('uk-phonetic')):
+                print("\t英 ["+basic.get('uk-phonetic')+"]",end="")
+            print("\n")
+        elif(basic.get('uk-phonetic')):
+            print("英 ["+basic.get('uk-phonetic')+"]\n")
         for e in basic.get('explains'):
             print(e)
         if(basic.get('wfs')):
