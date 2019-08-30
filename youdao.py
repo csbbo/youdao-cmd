@@ -94,10 +94,13 @@ def connect():
 
     response = do_request(data)
     if(response.status_code == 200):
-        content = response.json()
-        print_formatted(content)
+        try:
+            content = response.json()
+            print_formatted(content)
+        except:
+            print("请求异常,请检查网络连接!!!")
     else:
-        print("request error!!!")
+        print("请求异常,请检查网络连接!!!")
 
 
 if __name__ == '__main__':
