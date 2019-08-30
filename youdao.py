@@ -42,7 +42,7 @@ def do_request(data):
 
 
 def print_formatted(content):
-    print("\033[1;33m"+content.get('query').lstrip()+"\033[0m")
+    print("\033[1;37m"+content.get('query').lstrip()+"\033[0m")
     basic = content.get('basic')
     web = content.get('web')
     if(basic):
